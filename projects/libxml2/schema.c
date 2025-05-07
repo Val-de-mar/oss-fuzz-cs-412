@@ -8,7 +8,6 @@
  #define XML_DEPRECATED
 #include "libxml/xmlmemory.h"
 #include "libxml/xmlreader.h"
-#include <cstddef>
 #endif
 
 #include <libxml/catalog.h>
