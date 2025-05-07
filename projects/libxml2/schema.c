@@ -63,7 +63,6 @@ FuzzerTestOneInputInternal(const char *data, size_t size, bool useReader) {
        xmlCtxtSetResourceLoader(ctxt, xmlFuzzResourceLoader, NULL);
        doc = xmlCtxtReadFile(ctxt, xmlFuzzSecondaryUrl(), NULL,
                              XML_PARSE_NOENT);
-       xmlFreeParserCtxt(ctxt);
 
        if (useReader) {
            reader = xmlReaderWalker(doc);
@@ -83,6 +82,7 @@ FuzzerTestOneInputInternal(const char *data, size_t size, bool useReader) {
        }
        xmlFreeDoc(doc);
        xmlSchemaFree(schema);
+       xmlFreeParserCtxt(ctxt);
    }
 
    xmlFuzzInjectFailure(0);
